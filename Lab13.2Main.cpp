@@ -50,8 +50,6 @@ int main()
 			<< "Loan Amount: $" << mort1.getLoanAmount() << endl
 			<< setprecision(5)
 			<< "Annual Interest Rate: " << mort1.getAnnualInterestRate() << endl
-			<< "Monthly interest rate = " << mort1.getMonthlyInterestRate() << endl
-			<< "Term = " << mort1.getTerm() << endl
 			<< noshowpoint << setprecision(0)
 			<< "Years to repay: " << mort1.getTotalYearsToRepay() << endl
 			<< showpoint << setprecision(2)
@@ -67,5 +65,6 @@ int main()
 			quit = true;
 		}
 	} while (!quit);
-    return 0;
+	system("pause");
+	return 0;
 }

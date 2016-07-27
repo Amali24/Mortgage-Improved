@@ -75,15 +75,13 @@ void Mortgage::outputPaymentSchedule(ostream& out)
 		<< "Loan Amount: $" << getLoanAmount() << endl
 		<< setprecision(5)
 		<< "Annual Interest Rate: " << getAnnualInterestRate() << endl
-		<< "Monthly interest rate = " << getMonthlyInterestRate() << endl
-		<< "Term = " << getTerm() << endl
 		<< noshowpoint << setprecision(0)
 		<< "Years to repay: " << getTotalYearsToRepay() << endl
 		<< showpoint << setprecision(2)
 		<< "Monthly Payment: $" << calcMonthlyPayment() << endl
 		<< "Total Pay Back: $" << calcTotalPayment() << endl << endl;
 
-	out << " Pmt#    Payment Amount          Interest   Contrib to Principle Remaining balance" << endl;
+	out << " Pmt#    Payment Amount          Interest   Contrib to Principle  Remaining balance" << endl;
 	
 	double remBalance = getLoanAmount();
 	double monthlyPayment = calcMonthlyPayment();
@@ -94,8 +92,8 @@ void Mortgage::outputPaymentSchedule(ostream& out)
 	{
 		interestPaid = monthlyInterestRate * remBalance;
 		contribPrin = monthlyPayment - interestPaid;
-		out << setw(4) << i + 1 << setw(18) << monthlyPayment << setw(18)
-			<< interestPaid << setw(23) << contribPrin;
+		out << setw(5) << i + 1 << setw(18) << monthlyPayment << setw(18)
+			<< interestPaid << setw(23) << contribPrin << "          ";
 		remBalance -= contribPrin;
 		out << remBalance << endl;
 	}
